@@ -1,0 +1,96 @@
+﻿@model IEnumerable<Pocket.ClassProject.Statement.Statement>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    <button class="greenbutton" onclick="location.href='@Url.Action("Create", "Statements")';return false;">Add a bill</button>
+    @*
+        @Html.ActionLink("Create New", "Create")
+        @Html.ActionLink("Show Unpaid Only", "History")
+    *@
+</p>
+
+
+
+@*Script for activating DataTable*@
+
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+<link rel="stylesheet" type="text/css" href="~/DataTables-1.10.16/css/jquery.dataTables.css">
+<script type="text/javascript" charset="utf8" src="~/DataTables-1.10.16/js/jquery.dataTables.js"></script>
+
+@*Autofill data - insert code here*@
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#statement').DataTable({
+            scrollY: 400,
+
+        });
+    });
+</script>
+
+
+<table id="statement" class="display">
+    @*<table class="table">*@
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Company)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Amount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DueDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+
+            </th>
+
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Company)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Amount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DueDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+
