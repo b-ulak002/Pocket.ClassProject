@@ -20,20 +20,16 @@
 
 @*Script for activating DataTable*@
 
-<script src="~/Scripts/jquery-3.3.1.js"></script>
-<link rel="stylesheet" type="text/css" href="~/DataTables-1.10.16/css/jquery.dataTables.css">
-<script type="text/javascript" charset="utf8" src="~/DataTables-1.10.16/js/jquery.dataTables.js"></script>
-
-
-@*Autofill data - insert code here*@
-
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<link rel="stylesheet" type="text/css" href="~/DataTables-1.10.16/css/jquery.dataTables.min.css">
+<script type="text/javascript" charset="utf8" src="~/DataTables-1.10.16/js/jquery.dataTables.min.js"></script>
 
 <script type="text/javascript">
     $(document).ready(function () {
         $('#statement').DataTable({
-            scrollY: 400,
-
-        }); 
+            scrollY: 400
+        })
+    });        
 </script>
 
 
