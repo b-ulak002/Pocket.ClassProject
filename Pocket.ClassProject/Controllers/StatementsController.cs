@@ -20,6 +20,8 @@ namespace Pocket.ClassProject.Statement
             return View(db.Statements.ToList());
         }
 
+        public ActionResult Try() => View();
+
         // GET: Statements/Details/5
         public ActionResult Details(int? id)
         {
