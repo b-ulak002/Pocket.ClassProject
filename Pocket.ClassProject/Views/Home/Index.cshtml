@@ -2,12 +2,67 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1 class="lead" style="color:coral">Pocket</h1>
-    <p class="lead"style="color:coral">Your personal accountant coming soon...</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Powered by ASP.NET &raquo;</a></p>
+
+<div id="What" class="tabcontent">
+    <h3>What is Pocket?</h3>
+    <p>Pocket is a bill managing application</p>
 </div>
 
+<div id="Why" class="tabcontent">
+    <h3>Why use Pocket?</h3>
+    <p>Take control of your finances</p>
+</div>
+
+<div id="Feature" class="tabcontent">
+    <h3>Features</h3>
+    <p>Use it anytime, anywhere</p>
+</div>
+
+<div id="Peace" class="tabcontent">
+    <h3>Peace</h3>
+    <p>We will do the work for you. So you can enjoy your weekends.</p>
+</div>
+
+<button class="tablink" onclick="openReasons('What', this, 'coral')" id="defaultOpen">What is Pocket?</button>
+<button class="tablink" onclick="openReasons('Why', this, 'green')">Why use Pocket?</button>
+<button class="tablink" onclick="openReasons('Feature', this, 'steelblue')">Features</button>
+<button class="tablink" onclick="openReasons('Peace', this, 'orange')">Peace of mind</button>
+<div class="jumbotron">
+
+    <script>
+        function openReasons(reason, elmnt, color) {
+            // Hide all elements with class="tabcontent" by default */
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+
+            // Remove the background color of all tablinks/buttons
+            tablinks = document.getElementsByClassName("tablink");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].style.backgroundColor = "";
+            }
+
+            // Show the specific tab content
+            document.getElementById(reason).style.display = "block";
+
+            // Add the specific color to the button used to open the tab content
+            elmnt.style.backgroundColor = color;
+        }
+
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click()
+    </script>
+
+
+
+
+    @*<h1 class="lead" style="color:coral">Pocket</h1>
+        <p class="lead" style="color:coral">Your personal accountant coming soon...</p>*@
+   
+</div>
+<a class="btn btn-primary btn-lg" onclick="location.href='@Url.Action("Index", "Statements")';return false;">Try Pocket</a>
 <div class="row">
     <div class="col-md-4">
         <h2>Getting started</h2>
@@ -28,4 +83,5 @@
         <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
         <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
     </div>
+   
 </div>

@@ -6,7 +6,6 @@
 }
 
 <h2>Index</h2>
-
 <p>
     <button class="greenbutton" onclick="location.href='@Url.Action("Create", "Statements")';return false;">Add a bill</button>
     @*
@@ -14,6 +13,8 @@
         @Html.ActionLink("Show Unpaid Only", "History")
     *@
 </p>
+
+@*Add a body for summary like total due, *@
 
 
 
@@ -23,6 +24,7 @@
 <link rel="stylesheet" type="text/css" href="~/DataTables-1.10.16/css/jquery.dataTables.css">
 <script type="text/javascript" charset="utf8" src="~/DataTables-1.10.16/js/jquery.dataTables.js"></script>
 
+
 @*Autofill data - insert code here*@
 
 
@@ -31,8 +33,7 @@
         $('#statement').DataTable({
             scrollY: 400,
 
-        });
-    });
+        }); 
 </script>
 
 
@@ -90,6 +91,9 @@
         }
     </tbody>
 </table>
+
+
+
 
 
 
